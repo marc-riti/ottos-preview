@@ -1,0 +1,50 @@
+# Rebuilds this preview from the private site repo every few minutes, so saves made in
+# proverbs.io/admin go live without anyone pressing anything. Runs here because Actions
+# are free in public repos.
+name: Build from the site repo
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+concurrency:
+  group: build
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          path: out
+          ssh-key: ${{ secrets.PREVIEW_PUSH_KEY }}
+      - uses: actions/checkout@v5
+        with:
+          repository: marc-riti/ottos-shrunken-head-site
+          ssh-key: ${{ secrets.SOURCE_DEPLOY_KEY }}
+          path: site
+      - name: Anything new?
+        id: check
+        run: |
+          SHA=$(git -C site rev-parse HEAD)
+          echo "sha=$SHA" >> "$GITHUB_OUTPUT"
+          if [ -f out/.source-sha ] && [ "$(cat out/.source-sha)" = "$SHA" ]; then echo "same=1" >> "$GITHUB_OUTPUT"; fi
+      - uses: actions/setup-node@v5
+        if: steps.check.outputs.same != '1'
+        with:
+          node-version: 22
+      - name: Check content and build
+        if: steps.check.outputs.same != '1'
+        run: |
+          node site/src/validate-all.mjs
+          PREVIEW=1 OUT_DIR=out node site/src/build.mjs
+          echo "${{ steps.check.outputs.sha }}" > out/.source-sha
+      - name: Publish
+        if: steps.check.outputs.same != '1'
+        working-directory: out
+        run: |
+          git config user.name "Otto's site publisher"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then echo "Nothing new."; exit 0; fi
+          git commit -q -m "Build from site ${{ steps.check.outputs.sha }}"
+          git push -q
