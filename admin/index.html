@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin · Otto's Shrunken Head</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/admin/editor.css">
+</head>
+<body>
+<header class="top">
+  <div>
+    <p class="top__otto">Otto's</p>
+    <h1>Site admin</h1>
+  </div>
+  <div class="top__btns">
+    <a class="btn btn--ghost" href="/" target="_blank" rel="noopener">View the site</a>
+    <button class="btn" id="publish" type="button">Publish online</button>
+  </div>
+</header>
+
+<nav aria-label="Admin sections"><div class="tabs" role="tablist" aria-label="What to edit" id="tabs"></div></nav>
+<main>
+<p id="status" class="status" role="status" aria-live="polite"></p>
+<div id="panels"></div>
+</main>
+
+<script type="module" src="/admin/app.js"></script>
+</body>
+</html>
