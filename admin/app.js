@@ -32,22 +32,22 @@ async function editorsFile() {
 function loginScreen(cfg) {
   tabs.parentElement.hidden = true;
   publishBtn.hidden = true;
-  const st = { name: cfg.editors[0].name, password: '' };
+  const st = { name: '', password: '' };
   const err = h('p', { class: 'errors', role: 'alert' });
   const btn = h('button', { class: 'btn', type: 'submit' }, 'Log in');
-  const names = h('select', { onchange: e => { st.name = e.target.value; } }, cfg.editors.map(e => h('option', { value: e.name }, e.name)));
   const form = h('form', { class: 'card login', novalidate: true },
     h('h2', {}, 'Log in to edit the site'),
-    field('Your name', names),
+    field('Your name', input('', v => { st.name = v; }, { autocomplete: 'username', autocapitalize: 'words', spellcheck: 'false' })),
     field('Password', input('', v => { st.password = v; }, { type: 'password', autocomplete: 'current-password' })),
     err, btn);
   form.addEventListener('submit', async ev => {
     ev.preventDefault();
     err.textContent = ''; btn.disabled = true; btn.textContent = 'Checking…';
     try {
-      const entry = cfg.editors.find(e => e.name === st.name);
+      const entry = cfg.editors.find(e => e.name.toLowerCase() === st.name.trim().toLowerCase());
+      if (!entry) throw new Error('That name isn\'t set up to edit the site. Check the spelling.');
       const token = await unlock(entry, st.password);
-      sessionStorage.setItem(SESSION, JSON.stringify({ name: st.name, token }));
+      sessionStorage.setItem(SESSION, JSON.stringify({ name: entry.name, token }));
       location.reload();
     } catch (e) { err.textContent = e.message; btn.disabled = false; btn.textContent = 'Log in'; }
   });
