@@ -1,5 +1,5 @@
 // Hours, contact details, address, social links, and ticking off facts the bar has confirmed.
-import { api, h, field, input, area, check, saveBar } from './ui.js';
+import { api, h, field, input, area, check, saveBar } from './ui.js?v=3317ef7c';
 
 const DAYS = [['sun', 'Sunday'], ['mon', 'Monday'], ['tue', 'Tuesday'], ['wed', 'Wednesday'], ['thu', 'Thursday'], ['fri', 'Friday'], ['sat', 'Saturday']];
 

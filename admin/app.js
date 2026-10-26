@@ -1,13 +1,13 @@
 // Admin shell: picks local or online mode, logs in when online, then runs the tabs,
 // unsaved-change warnings and the Publish button.
-import { api, useApi, h, say, field, input } from './ui.js';
-import { githubApi, unlock } from './github.js';
-import { showsPanel, regularsPanel } from './shows.js';
-import { storePanel } from './store.js';
-import { menuPanel } from './menu.js';
-import { textPanel } from './text.js';
-import { photosPanel } from './photos.js';
-import { settingsPanel } from './settings.js';
+import { api, useApi, h, say, field, input } from './ui.js?v=3317ef7c';
+import { githubApi, unlock } from './github.js?v=3317ef7c';
+import { showsPanel, regularsPanel } from './shows.js?v=3317ef7c';
+import { storePanel } from './store.js?v=3317ef7c';
+import { menuPanel } from './menu.js?v=3317ef7c';
+import { textPanel } from './text.js?v=3317ef7c';
+import { photosPanel } from './photos.js?v=3317ef7c';
+import { settingsPanel } from './settings.js?v=3317ef7c';
 
 const PANELS = [showsPanel, regularsPanel, storePanel, menuPanel, textPanel, photosPanel, settingsPanel];
 const SESSION = 'otto-admin';

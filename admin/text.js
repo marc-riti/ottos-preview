@@ -1,5 +1,5 @@
 // Page text: every block of words on the site, page by page. Saves content/text.json.
-import { api, h, field, input, area, saveBar, move } from './ui.js';
+import { api, h, field, input, area, saveBar, move } from './ui.js?v=3317ef7c';
 
 // [key, label, type]. Types: line, para (blank line = new paragraph), lines (one item per line),
 // items (title + text), deal (price + label), press (outlet, title, date, link).

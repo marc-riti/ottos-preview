@@ -1,6 +1,6 @@
 // Store: settings (PayPal, checkout switches) and every item for sale. Saves content/merch.json.
-import { api, h, say, field, input, area, select, check, dialog, saveBar, move, money, slug } from './ui.js';
-import { productPhoto } from './image.js';
+import { api, h, say, field, input, area, select, check, dialog, saveBar, move, money, slug } from './ui.js?v=3317ef7c';
+import { productPhoto } from './image.js?v=3317ef7c';
 
 const KIND = [['mug', 'Mug'], ['wear', 'Shirt, hoodie, bag or other']];
 

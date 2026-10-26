@@ -1,5 +1,5 @@
 // Drinks menu: the three glass/mug prices used across the site, every drink, and which mug it comes in.
-import { api, h, say, field, input, area, select, check, dialog, saveBar, move } from './ui.js';
+import { api, h, say, field, input, area, select, check, dialog, saveBar, move } from './ui.js?v=3317ef7c';
 
 export const menuPanel = {
   id: 'menu', label: 'Drinks menu',

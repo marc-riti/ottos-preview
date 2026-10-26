@@ -1,6 +1,6 @@
 // Photos: every picture spot on the site. Upload a new photo or reuse one already on the site.
-import { api, h, field, input, area, select, saveBar, slug } from './ui.js';
-import { photoSet } from './image.js';
+import { api, h, field, input, area, select, saveBar, slug } from './ui.js?v=3317ef7c';
+import { photoSet } from './image.js?v=3317ef7c';
 
 export const photosPanel = {
   id: 'photos', label: 'Photos',

@@ -1,6 +1,6 @@
 // Online admin: reads and saves content straight to the site's GitHub repo with the token unlocked at login.
 // Every save is a commit; the repo's publish workflow rebuilds proverbs.io about two minutes later.
-import { validate } from './validate.mjs';
+import { validate } from './validate.mjs?v=3317ef7c';
 
 const API = 'https://api.github.com';
 const LABELS = { events: 'shows', merch: 'store', menu: 'drinks menu', text: 'page text', photos: 'photos', site: 'hours & contact' };

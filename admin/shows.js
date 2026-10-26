@@ -1,5 +1,5 @@
 // Shows (dated listings) and Regular nights. Both live in content/events.json.
-import { api, h, say, field, input, area, select, check, dialog } from './ui.js';
+import { api, h, say, field, input, area, select, check, dialog } from './ui.js?v=3317ef7c';
 
 const KINDS = { music: 'Live music', dj: 'DJ night', comedy: 'Comedy', openmic: 'Open mic', words: 'Readings', market: 'Market', party: 'Party' };
 const DAYS = { sun: 'Sunday', mon: 'Monday', tue: 'Tuesday', wed: 'Wednesday', thu: 'Thursday', fri: 'Friday', sat: 'Saturday' };

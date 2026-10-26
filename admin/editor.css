@@ -44,7 +44,7 @@ code { background: var(--ink-3); padding: 1px 5px; border-radius: 3px; }
 .check { display: flex; align-items: center; gap: 8px; min-height: 40px; }
 .check input { width: 22px; height: 22px; flex: none; }
 .check label { font-weight: 400; }
-input[type=text], input[type=date], input[type=time], input[type=number], input[type=email], input[type=tel], input[type=url], input:not([type]), select, textarea {
+input[type=text], input[type=password], input[type=date], input[type=time], input[type=number], input[type=email], input[type=tel], input[type=url], input:not([type]), select, textarea {
   display: block; width: 100%; padding: 10px; font: 1rem/1.4 inherit; background: var(--ink); color: var(--bone); border: 2px solid var(--ink-4); border-radius: 4px; }
 input[type=file] { font: inherit; color: var(--dim); max-width: 100%; }
 input:focus, select:focus, textarea:focus { border-color: var(--lime); }

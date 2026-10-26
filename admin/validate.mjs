@@ -1,6 +1,6 @@
 // Checks for everything the admin can save. Runs on the local server and in the browser (online admin),
 // so it never touches the file system itself: callers pass `exists(imgPath)`, `textKeys` and `images`.
-import { validateEvents, DAYS, slug } from './lib.mjs';
+import { validateEvents, DAYS, slug } from './lib.mjs?v=3317ef7c';
 
 const TIME_RE = /^([01]?\d|2[0-3]):[0-5]\d$/;
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
